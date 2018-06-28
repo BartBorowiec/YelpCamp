@@ -3,13 +3,15 @@ var mongoose = require("mongoose"),
     URLSlugs = require('mongoose-url-slugs');
 
 var UserSchema = new mongoose.Schema({
-    username: String,
+    username: {type: String, unique: true, required: true},
     password: String,
     avatar: String,
     firstName: String,
     lastName: String,
-    email: String,
-    isAdmin: {type: Boolean, default: false}
+    email: {type: String, unique: true, required: true},
+    isAdmin: {type: Boolean, default: false},
+    resetPasswordToken: String,
+    resetPasswordExpires: Date
 });
 
 UserSchema.plugin(passportLocalMongoose);
