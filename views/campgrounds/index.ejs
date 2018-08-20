@@ -1,19 +1,16 @@
 <% include ../partials/header %>
     <header class="jumbotron">
       <div class="container">
-        <h1>Welcome to BartCamp!</h1>
-        <p>View our hand-picked campgrounds from all over the world</p>
-        <p>
-          <a class="btn btn-success btn-lg mb-2" href="/campgrounds/new">Add New Campground</a>
-        </p>
-        <p>
-          <form action="/campgrounds" method="GET" class="form-inline">
-            <div class="form-group">
-              <input class="form-control" type="text" name="search" <% if(search) { %> value= "<%= search %>" <% } %> placeholder="Search campgrounds...">
-              <input class="btn btn-dark" type="submit" value="Search">
-            </div>
-          </form>
-        </p>
+        <h1 class="display-4">Welcome to BartCamp!</h1>
+        <p class="lead">View our hand-picked campgrounds from all over the world</p>
+        <hr class="my-4">
+        <a class="btn btn-success btn-lg mb-3" href="/campgrounds/new">Add New Campground</a>
+        <form action="/campgrounds" method="GET" class="form-inline">
+          <div class="form-group">
+            <input class="form-control" type="text" name="search" <% if(search) { %> value= "<%= search %>" <% } %> placeholder="Search campgrounds...">
+            <input class="btn btn-dark" type="submit" value="Search">
+          </div>
+        </form>
       </div>
     </header>
     <div class="row text-center">
