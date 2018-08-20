@@ -1,4 +1,3 @@
-//all the middleware goes here
 var Campground    = require("../models/campground"),
     Comment       = require("../models/comment"),
     middlewareObj = {};

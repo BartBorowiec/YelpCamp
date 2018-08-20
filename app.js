@@ -10,7 +10,6 @@ var express        = require("express"),
     Campground     = require("./models/campground"),
     Comment        = require("./models/comment"),
     User           = require("./models/user"),
-    seedDB         = require("./seeds"),
     methodOverride = require("method-override");
 
 //requiring routes
@@ -18,7 +17,8 @@ var commentRoutes    = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
     indexRoutes      = require("./routes/index");
 
-mongoose.connect("mongodb://localhost/yelp_camp");
+//mongoose.connect("mongodb://localhost/yelp_camp");
+mongoose.connect("mongodb://bart:"+ process.env.DATABASE_PASSWORD +"@ds121182.mlab.com:21182/bartcamp");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
@@ -50,5 +50,5 @@ app.use("/campgrounds/:slug/comments", commentRoutes);
 app.use("/campgrounds", campgroundRoutes);
 
 app.listen(process.env.PORT, process.env.IP, function() {
-    console.log("The YelpCamp servers has started!");
+    console.log("The BartCamp servers has started!");
 });

@@ -46,17 +46,6 @@ router.get("/login", function(req, res){
     res.render("login", {page: 'login'});
 });
 
-// //handle login logic
-// router.post("/login",
-//     passport.authenticate("local", 
-//     {
-//         successRedirect:"/campgrounds",
-//         failureRedirect:"/login",
-//         failureFlash:"Invalid username or password",
-//         successFlash:"Logged you in"
-//     }
-//     ), function(req,res){
-// });
 //handling login logic
 router.post('/login', function(req, res, next) {
   passport.authenticate('local', function(err, user, info) {
